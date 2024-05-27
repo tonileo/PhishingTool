@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Phishing Detector",
+  "version": "1.0",
+  "description": "Detects phishing URLs in emails.",
+  "applications":{
+  	"gecko": {
+  		"id": "users@phisingTool.com"
+  	}
+  },
+  "permissions": [
+    "messagesRead",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
+

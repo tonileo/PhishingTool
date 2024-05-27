@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Thunderbird Script
+Exec=/srv/shared/phishingTool/skriptaiThunderbird.sh
+Terminal=false
+Type=Application
+Icon=thunderbird
