@@ -13,9 +13,15 @@ def add_x_status_f_to_emails(file_path, links_to_detect):
         lines = email.split('\n')
         email_content = '\n'.join(lines[lines.index('')+1:])
         if any(link in email_content for link in links_to_detect):
-            if 'X-Status: F' not in lines:
+            x_status_lines = [line for line in lines if line.startswith('X-Status:')]
+            if x_status_lines:
+                x_status_index = lines.index(x_status_lines[0])
+                if 'F' not in lines[x_status_index]:
+                    lines[x_status_index] += 'F'
+            else:
                 blank_line_index = lines.index('')
                 lines.insert(blank_line_index, 'X-Status: F')
+
         modified_emails.append('\n'.join(lines))
 
     with open(file_path, 'w') as file:
