@@ -1,4 +1,4 @@
-# PhishingTool
+[# PhishingTool
 
 Thunderbird add-on detects phishing in mail messages that are sent with Postfix
 
@@ -17,3 +17,5 @@ Thunderbird add-on detects phishing in mail messages that are sent with Postfix
 * background.js - listens to displayed messages in Thunderbird. When a flagged message is detected, the script marks the message as junk and opens a popup window that is created using the popup.html and popup.css files to provide additional notice to the user
 * popup.css - contains design for popup.html
 * popup.html - small html window that will be displayed when flagged message is detected
+
+![Architecture Diagram](https://raw.githubusercontent.com/your-username/your-repo/feature-branch/images/diagram.png](https://github.com/tonileo/PhishingTool/blob/docs/Snimka%20zaslona%202024-06-01%20212929.png)
