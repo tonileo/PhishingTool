@@ -18,4 +18,4 @@ Thunderbird add-on detects phishing in mail messages that are sent with Postfix
 * popup.css - contains design for popup.html
 * popup.html - small html window that will be displayed when flagged message is detected
 
-![Architecture Diagram](https://raw.githubusercontent.com/your-username/your-repo/feature-branch/images/diagram.png](https://github.com/tonileo/PhishingTool/blob/docs/Snimka%20zaslona%202024-06-01%20212929.png)
+![Architecture Diagram](https://github.com/tonileo/PhishingTool/blob/docs/Snimka%20zaslona%202024-06-01%20212929.png)
