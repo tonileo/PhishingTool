@@ -34,13 +34,11 @@ async function awaitIskocni() {
   let window = await messenger.windows.create({
     url: "iskocni.html",
     type: "popup",
-    height: 280,
-    width: 390,
+    height: 400,
+    width: 500,
     allowScriptsToClose: true,
   });
 
-  let rv = await iskocniPrompt(window.id, "cancel");
-  console.log(rv);
   iskocniOtvoren = false;
 }
 
