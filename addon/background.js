@@ -1,32 +1,29 @@
-let popupOpen = false;
+let iskocniOtvoren = false;
 
-async function awaitPopup() {
-  if (popupOpen) {
+async function awaitIskocni() {
+  if (iskocniOtvoren) {
     return;
   }
-  popupOpen = true;
+  iskocniOtvoren = true;
 
-  async function popupPrompt(popupId, defaultResponse) {
-    try {
-      await messenger.windows.get(popupId);
-    } catch (e) {
-      return defaultResponse;
-    }
+  async function iskocniPrompt(iskocniId, defaultResponse) {
+    await messenger.windows.get(iskocniId);
+
     return new Promise(resolve => {
       let response = defaultResponse;
       function windowRemoveListener(closedId) {
-        if (popupId == closedId) {
+        if (iskocniId == closedId) {
           messenger.windows.onRemoved.removeListener(windowRemoveListener);
           messenger.runtime.onMessage.removeListener(messageListener);
           resolve(response);
         }
       }
       function messageListener(request, sender, sendResponse) {
-        if (sender.tab.windowId != popupId || !request) {
+        if (sender.tab.windowId != iskocniId || !request) {
           return;
         }
-        if (request.popupResponse) {
-          response = request.popupResponse;
+        if (request.iskocniResponse) {
+          response = request.iskocniResponse;
         }
       }
       messenger.runtime.onMessage.addListener(messageListener);
@@ -35,25 +32,25 @@ async function awaitPopup() {
   }
 
   let window = await messenger.windows.create({
-    url: "popup.html",
+    url: "iskocni.html",
     type: "popup",
     height: 280,
     width: 390,
     allowScriptsToClose: true,
   });
 
-  let rv = await popupPrompt(window.id, "cancel");
+  let rv = await iskocniPrompt(window.id, "cancel");
   console.log(rv);
-  popupOpen = false;
+  iskocniOtvoren = false;
 }
 
 browser.messageDisplay.onMessageDisplayed.addListener((tab, message) => {
   if (message && message.flagged) {
     browser.messages.update(message.id, { junk: true }).then(() => {
-      console.log(`Message with ID: ${message.id} marked as junk.`);
-      awaitPopup();
+      console.log(`Poruksa s ID: ${message.id} je dodana u smece.`);
+      awaitIskocni();
     }).catch(error => {
-      console.error("Failed to mark message as junk:", error);
+      console.error("Greska dodavanja u smece:", error);
     });
   }
 });
