@@ -1,6 +1,6 @@
 # PhishingTool
 
-Thunderbird add-on detects phishing in mail messages that are sent with Postfix made for us in Ubuntu
+Thunderbird add-on detects phishing in mail messages that are sent with Postfix made for use in Ubuntu
 
 ![Example](https://github.com/tonileo/PhishingTool/blob/docs/Snimka%20zaslona%202024-06-01%20212929.png)
 
