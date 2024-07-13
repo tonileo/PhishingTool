@@ -1,12 +1,14 @@
 # PhishingTool
 
-Thunderbird add-on detects phishing in mail messages that are sent with Postfix made for use in Ubuntu
+Thunderbird add-on that detects phishing in mail messages that are sent with Postfix. Made for use in Ubuntu.
+
+Detects phishing links that you blacklist in detect.txt file and detects phishing attachments (spear phishing) that you whitelist in attachments.txt file.
 
 ![Example](https://github.com/tonileo/PhishingTool/blob/docs/Snimka%20zaslona%202024-06-01%20212929.png)
 
 ## Parts
 
-* detect.txt - .txt file where phishing links are located that we want to compare with mail
+* detect.txt - .txt file where blacklisted phishing links are located. These links are compared with links in each of mail messages
 * attachments.txt - .txt file where white listed attachments are
 * pokazujeNaSkriptu.desktop - file located on desktop that is behaving like an app. Pointing to skriptaiThunderbird.sh
 * skriptaPostfix.py - script that compares all mail content of a user with phishing links (detect.txt) and flags them
